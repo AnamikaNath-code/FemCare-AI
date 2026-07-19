@@ -205,12 +205,23 @@ header {background: transparent !important;}
 }
 
 /* ---------- Headings ---------- */
-.main h1, .main h2, .main h3 {
+[data-testid="stAppViewContainer"] h1,
+[data-testid="stAppViewContainer"] h2,
+[data-testid="stAppViewContainer"] h3,
+[data-testid="stAppViewContainer"] h4 {
     color: #6B3A52 !important;
 }
 
-/* ---------- Body text / markdown ---------- */
-.main p, .main li, .main span {
+/* ---------- Body text / markdown ----------
+   FIX: ".main p/li/span" no longer matches in current
+   Streamlit versions (the wrapper class was renamed).
+   Target the actual markdown container instead so
+   plain text, bullet lists, and st.write() content
+   are no longer invisible against the light background. */
+[data-testid="stMarkdownContainer"] p,
+[data-testid="stMarkdownContainer"] li,
+[data-testid="stMarkdownContainer"] span,
+[data-testid="stText"] {
     color: #4A2E3D !important;
 }
 
@@ -233,10 +244,4 @@ header {background: transparent !important;}
 /* ---------- st.info boxes ---------- */
 div[data-testid="stAlert"] p {
     color: #0C3D5C !important;
-}
-[data-testid="stAppViewContainer"] h1,
-[data-testid="stAppViewContainer"] h2,
-[data-testid="stAppViewContainer"] h3,
-[data-testid="stAppViewContainer"] h4 {
-    color: #6B3A52 !important;
 }
