@@ -1,4 +1,4 @@
-#predicition.py
+#prediction.py
 import streamlit as st
 import joblib
 import numpy as np
@@ -366,6 +366,7 @@ def prediction():
         "🩷 Predict PCOS",
         use_container_width=True
     )
+
     # =====================================
     # PREDICTION
     # =====================================
@@ -384,7 +385,14 @@ def prediction():
         fast_food_value = 1 if fast_food == "Yes" else 0
         exercise_value = 1 if exercise == "Yes" else 0
 
-        # Arrange features in EXACT training order
+        # Arrange features in EXACT training order.
+        # IMPORTANT: this order must exactly match feature_names.pkl —
+        # if it doesn't, values get scaled/predicted under the wrong
+        # column labels and everything downstream (including the table
+        # on the Explainable AI page) will look wrong or show 0s in the
+        # wrong places. Worth doing:
+        #     print(list(feature_names))
+        # once and comparing it line-by-line against this list.
         input_data = [[
             age,
             weight,
@@ -432,14 +440,16 @@ def prediction():
         # Scale features
         input_scaled = scaler.transform(input_data)
 
-        # Save input for Explainable AI page
+        # Predict FIRST — you need these values to exist before you
+        # can store them in session_state.
+        prediction = model.predict(input_scaled)[0]
+        probability = model.predict_proba(input_scaled)[0][1]
+
+        # NOW save everything for the Explainable AI page.
         st.session_state["patient_input"] = input_data
         st.session_state["patient_input_scaled"] = input_scaled
-
-        # Predict
-        prediction = model.predict(input_scaled)[0]
-
-        probability = model.predict_proba(input_scaled)[0][1]
+        st.session_state["prediction"] = prediction
+        st.session_state["probability"] = probability
 
         st.divider()
 
@@ -511,4 +521,3 @@ Recommendations:
         st.info(
             "⚠️ This prediction is generated using a Machine Learning model and is intended to assist—not replace—a qualified medical diagnosis."
         )
-                
