@@ -67,5 +67,5 @@ def divider():
     st.markdown('<hr class="sakhi-divider">', unsafe_allow_html=True)
 
 
-def footer(text: str = "Made with care, for women's health · SAKHI © 2026"):
+def footer(text: str = "Made with care, for women's health · SAKURA © 2026"):
     st.markdown(f'<div class="sakhi-footer">{text}</div>', unsafe_allow_html=True)
