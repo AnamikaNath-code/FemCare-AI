@@ -11,17 +11,36 @@ import matplotlib.pyplot as plt
 
 def explainable_ai():
    
+    st.markdown("""
+    <div style="
+        background:linear-gradient(90deg,#FFE6F0,#FFF8FB);
+        padding:20px;
+        border-radius:15px;
+        border-left:7px solid #E75480;
+    ">
 
-    st.error("🚨 DEBUG MARKER: explainable_ai.py v2 is running 🚨")
+    <h1 style="
+    color:#E75480;
+    margin-bottom:5px;
+    ">
 
-    st.title("🧠 Explainable AI")
-    ...
+    🧠 Explainable AI
 
-    st.title("🧠 Explainable AI")
-    st.caption(
-        "Understand how the Random Forest model arrived at its prediction using SHAP "
-        "(SHapley Additive exPlanations)."
-    )
+    </h1>
+
+    <p style="
+    color:#555;
+    font-size:16px;
+    ">
+
+    Understand how the Random Forest model arrived at its prediction
+    using SHAP (SHapley Additive exPlanations).
+
+    </p>
+
+    </div>
+
+    """, unsafe_allow_html=True)
 
     # ==========================================
     # CHECK PREDICTION

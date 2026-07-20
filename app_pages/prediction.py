@@ -67,8 +67,18 @@ def prediction():
 
         blood_group = st.selectbox(
             "Blood Group",
-            [11, 12, 13, 14, 15, 16, 17, 18]
-        )
+            options=[
+                ("A+", 11),
+                ("A-", 12),
+                ("B+", 13),
+                ("B-", 14),
+                ("O+", 15),
+                ("O-", 16),
+                ("AB+", 17),
+                ("AB-", 18),
+            ],
+            format_func=lambda x: x[0]
+        )[1]
 
     st.divider()
 
@@ -176,18 +186,23 @@ def prediction():
 
         fsh = st.number_input(
             "FSH (mIU/mL)",
-            value=5.0
+            min_value=0.1,
+            max_value=100.0,
+            value=5.0,
+            step=0.1,
+            format="%.2f"
         )
 
         lh = st.number_input(
             "LH (mIU/mL)",
-            value=5.0
+            min_value=0.1,
+            max_value=100.0,
+            value=5.0,
+            step=0.1,
+            format="%.2f"
         )
-
-        if lh != 0:
-            ratio = fsh / lh
-        else:
-            ratio = 0
+        
+        ratio = round(fsh / max(lh, 0.1), 2)
 
         st.metric(
             "FSH/LH Ratio",
@@ -394,51 +409,57 @@ def prediction():
         #     print(list(feature_names))
         # once and comparing it line-by-line against this list.
         input_data = [[
-            age,
-            weight,
-            height,
-            bmi,
-            blood_group,
-            pulse,
-            respiratory,
-            hb,
-            cycle_value,
-            cycle_length,
-            marriage,
-            pregnant_value,
-            abortions,
-            beta1,
-            beta2,
-            fsh,
-            lh,
-            ratio,
-            hip,
-            waist,
-            waist_hip,
-            tsh,
-            amh,
-            prl,
-            vitamin_d,
-            progesterone,
-            rbs,
-            weight_gain_value,
-            hair_growth_value,
-            skin_darkening_value,
-            hair_loss_value,
-            pimples_value,
-            fast_food_value,
-            exercise_value,
-            systolic,
-            diastolic,
-            follicle_left,
-            follicle_right,
-            avg_left,
-            avg_right,
-            endometrium
-        ]]
+        0,  # Sl. No.
+        0,  # Patient File No.
+
+        age,
+        weight,
+        height,
+        bmi,
+        blood_group,
+        pulse,
+        respiratory,
+        hb,
+        cycle_value,
+        cycle_length,
+        marriage,
+        pregnant_value,
+        abortions,
+        beta1,
+        beta2,
+        fsh,
+        lh,
+        ratio,
+        hip,
+        waist,
+        waist_hip,
+        tsh,
+        amh,
+        prl,
+        vitamin_d,
+        progesterone,
+        rbs,
+        weight_gain_value,
+        hair_growth_value,
+        skin_darkening_value,
+        hair_loss_value,
+        pimples_value,
+        fast_food_value,
+        exercise_value,
+        systolic,
+        diastolic,
+        follicle_left,
+        follicle_right,
+        avg_left,
+        avg_right,
+        endometrium
+    ]]
 
         # Scale features
+        print("Input features:", len(input_data[0]))
+        print("Scaler expects:", scaler.n_features_in_)
         input_scaled = scaler.transform(input_data)
+        
 
         # Predict FIRST — you need these values to exist before you
         # can store them in session_state.

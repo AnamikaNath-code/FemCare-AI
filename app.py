@@ -21,7 +21,7 @@ st.markdown("""
 /* ---------- Main App ---------- */
 
 .stApp{
-    ackground:#0E1117;
+    background:#0E1117;
     color:white;
 }
             

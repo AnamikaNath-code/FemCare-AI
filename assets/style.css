@@ -245,3 +245,45 @@ header {background: transparent !important;}
 div[data-testid="stAlert"] p {
     color: #0C3D5C !important;
 }
+
+
+
+
+
+
+
+/* ===== Force the main page to the light pink theme ===== */
+
+html,
+body,
+.stApp,
+[data-testid="stAppViewContainer"],
+[data-testid="stMain"],
+[data-testid="stMainBlockContainer"],
+.main {
+    background: linear-gradient(
+        180deg,
+        #FFF8FB 0%,
+        #FDF1F6 45%,
+        #FBF7FA 100%
+    ) !important;
+}
+
+/* Main content area */
+section.main > div {
+    background: transparent !important;
+}
+
+/* Block container */
+.block-container {
+    background: transparent !important;
+}
+
+/* Sidebar stays light */
+[data-testid="stSidebar"] {
+    background: linear-gradient(
+        180deg,
+        #FDEEF3 0%,
+        #FFF9FB 100%
+    ) !important;
+}
