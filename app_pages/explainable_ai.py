@@ -10,6 +10,12 @@ import matplotlib.pyplot as plt
 # ==========================================
 
 def explainable_ai():
+   
+
+    st.error("🚨 DEBUG MARKER: explainable_ai.py v2 is running 🚨")
+
+    st.title("🧠 Explainable AI")
+    ...
 
     st.title("🧠 Explainable AI")
     st.caption(
