@@ -6,7 +6,6 @@
 ![Streamlit](https://img.shields.io/badge/Streamlit-App-FF4B4B)
 ![scikit--learn](https://img.shields.io/badge/scikit--learn-RandomForest-orange)
 ![SHAP](https://img.shields.io/badge/Explainability-SHAP-purple)
-![License](https://img.shields.io/badge/License-MIT-green)
 
 ---
 
@@ -28,25 +27,6 @@ FemCare AI takes a patient's clinical, hormonal, and lifestyle data and predicts
 | 📊 **Model Performance** | Accuracy/Precision/Recall/F1 for the deployed model, plus a comparison chart across 9 candidate algorithms |
 | 🤖 **AI Assistant** | Voice-enabled Q&A assistant (in progress — see [Roadmap](#-roadmap)) |
 | ℹ️ **About** | Project vision, tech stack, and disclaimer |
-
----
-
-## 📸 Screenshots
-
-<!--
-  Add app screenshots here. Suggested steps:
-  1. Run the app locally (`streamlit run app.py`) and capture each page.
-  2. Save the images into an `assets/screenshots/` folder in the repo.
-  3. Reference them below, e.g. ![Home Page](assets/screenshots/home.png)
--->
-
-| Home | Prediction |
-|---|---|
-| ![Home Page](assets/screenshots/home.png) | ![Prediction Page](assets/screenshots/prediction.png) |
-
-| Explainable AI | Model Performance |
-|---|---|
-| ![Explainable AI Page](assets/screenshots/explainable_ai.png) | ![Model Performance Page](assets/screenshots/performance.png) |
 
 ---
 
@@ -74,20 +54,6 @@ Data preparation, EDA, model training, and evaluation are documented in [`notebo
 | Precision | 93% |
 | Recall | 78% |
 | F1 Score | 85% |
-
-**Models compared:**
-
-| Model | Accuracy |
-|---|---|
-| Logistic Regression | 91% |
-| Decision Tree | 88% |
-| **Random Forest (deployed)** | **91%** |
-| KNN | 89% |
-| SVM | 89% |
-| Naive Bayes | 86% |
-| AdaBoost | 91% |
-| Gradient Boosting | 92% |
-| XGBoost | 94% |
 
 ---
 
@@ -131,34 +97,6 @@ FemCare-AI/
 
 ---
 
-## 🚀 Getting Started
-
-### Prerequisites
-- Python 3.10+
-- pip
-
-### Installation
-
-```bash
-# Clone the repo
-git clone https://github.com/AnamikaNath-code/FemCare-AI.git
-cd FemCare-AI
-
-# Create and activate a virtual environment (recommended)
-python -m venv venv
-source venv/bin/activate      # Windows: venv\Scripts\activate
-
-# Install dependencies
-pip install -r requirements.txt
-
-# Run the app
-streamlit run app.py
-```
-
-The app will open at `http://localhost:8501`.
-
----
-
 ## 🧩 How It Works
 
 1. Enter patient data on the **Prediction** page.
@@ -179,16 +117,11 @@ The app will open at `http://localhost:8501`.
 
 ---
 
-## 📄 License
-
-This project is licensed under the [MIT License](LICENSE) — free to use, modify, and distribute with attribution.
-
----
-
 ## 👩‍💻 Author
 
 **Anamika Nath** — [GitHub](https://github.com/AnamikaNath-code)
-**Akshiti Singh**-[GitHub](https://github.com/Akshiti007)
+**Akshiti Singh**- [Github](https://github.com/Akshiti007)
+
 ---
 
 <p align="center">Made with care, for women's health 🌸</p>
