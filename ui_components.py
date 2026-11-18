@@ -1,6 +1,6 @@
 """
 ui_components.py
-Reusable UI building blocks for the SAKHI app.
+Reusable UI building blocks for the SAKURA app.
 Import these into app.py and every page under pages/.
 """
 
